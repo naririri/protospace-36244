@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :authenticate_user!,  only: [:edit, :new, :destroy, :create, :show]
+  before_action :authenticate_user!,  only: [:edit, :new, :destroy, :create]
   before_action :set_prototype,       only: [:show, :edit, :update, :destroy]
   #before_action :set_prototype_local,only: [:update, :destroy]
   before_action :move_to_index,       only: [:edit, :update, :destroy]
@@ -56,10 +56,6 @@ class PrototypesController < ApplicationController
 
   def set_prototype
     @prototype = Prototype.find(params[:id])
-  end
-
-  def set_prototype_local
-    prototype = Prototype.find(params[:id])
   end
 
   def move_to_index
